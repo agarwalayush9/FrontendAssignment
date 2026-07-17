@@ -12,9 +12,27 @@ interface FiatWallet {
 }
 
 const FIAT_WALLETS: FiatWallet[] = [
-  { flag: "🇦🇺", code: "AUD", name: "Australian Dollar", balance: "5400 AUD", inr: "3,51,953.48 INR" },
-  { flag: "🇮🇩", code: "IDR", name: "Indonesian Rupiah", balance: "5400 IDR", inr: "3,51,953.48 INR" },
-  { flag: "🇯🇵", code: "JPY", name: "Japanese Yen",      balance: "5400 JPY", inr: "3,51,953.48 INR" },
+  {
+    flag: "🇦🇺",
+    code: "AUD",
+    name: "Australian Dollar",
+    balance: "5400 AUD",
+    inr: "3,51,953.48 INR",
+  },
+  {
+    flag: "🇮🇩",
+    code: "IDR",
+    name: "Indonesian Rupiah",
+    balance: "5400 IDR",
+    inr: "3,51,953.48 INR",
+  },
+  {
+    flag: "🇯🇵",
+    code: "JPY",
+    name: "Japanese Yen",
+    balance: "5400 JPY",
+    inr: "3,51,953.48 INR",
+  },
 ];
 
 /** Single fiat card */
@@ -36,14 +54,22 @@ function FiatCard({ wallet }: { wallet: FiatWallet }) {
 
       {/* Name / Code */}
       <div className="flex flex-col min-w-0">
-        <span className="text-[14px] font-bold text-[#E5E7EB] leading-tight">{wallet.code}</span>
-        <span className="text-[11px] font-medium text-[#6B7280] truncate">{wallet.name}</span>
+        <span className="text-[14px] font-bold text-[#E5E7EB] leading-tight">
+          {wallet.code}
+        </span>
+        <span className="text-[11px] font-medium text-[#6B7280] truncate">
+          {wallet.name}
+        </span>
       </div>
 
       {/* Balance */}
       <div className="flex flex-col items-end ml-auto shrink-0">
-        <span className="text-[13px] font-bold text-white leading-tight tracking-wide">{wallet.balance}</span>
-        <span className="text-[11px] font-medium text-[#6B7280]">{wallet.inr}</span>
+        <span className="text-[13px] font-bold text-white leading-tight tracking-wide">
+          {wallet.balance}
+        </span>
+        <span className="text-[11px] font-medium text-[#6B7280]">
+          {wallet.inr}
+        </span>
       </div>
 
       {/* Menu */}
@@ -62,7 +88,12 @@ export default function FiatWallets() {
     <section aria-label="Fiat Wallets">
       <h2
         className="font-bold mb-[14px]"
-        style={{ fontSize: 13, color: "#6B7280", letterSpacing: "0.06em", textTransform: "uppercase" }}
+        style={{
+          fontSize: 13,
+          color: "#6B7280",
+          letterSpacing: "0.06em",
+          textTransform: "uppercase",
+        }}
       >
         Fiat Wallets
       </h2>
@@ -79,7 +110,9 @@ export default function FiatWallets() {
           style={{ minWidth: 194, flex: "0 0 194px" }}
         >
           <Plus size={16} strokeWidth={2.5} />
-          <span className="text-[13px] font-bold tracking-wide">Add More Fiats</span>
+          <span className="text-[13px] font-bold tracking-wide">
+            Add More Fiats
+          </span>
         </button>
       </div>
     </section>

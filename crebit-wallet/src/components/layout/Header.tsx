@@ -36,12 +36,12 @@ export default function Header() {
           type="text"
           placeholder="Search"
           className="bg-transparent outline-none flex-1"
-          style={{ 
-            color: "#6B7280", 
-            fontSize: 16, 
-            fontWeight: 700, 
+          style={{
+            color: "#6B7280",
+            fontSize: 16,
+            fontWeight: 700,
             letterSpacing: "0.05em",
-            fontFamily: "var(--font-sans)"
+            fontFamily: "var(--font-sans)",
           }}
         />
       </div>
@@ -66,14 +66,30 @@ export default function Header() {
           <div
             aria-hidden="true"
             className="flex items-center justify-center rounded-full font-black text-white shrink-0"
-            style={{ width: 20, height: 20, background: "#F7931A", fontSize: 11 }}
+            style={{
+              width: 20,
+              height: 20,
+              background: "#F7931A",
+              fontSize: 11,
+            }}
           >
-            <span style={{ transform: "rotate(14deg)", display: "inline-block" }}>₿</span>
+            <span
+              style={{ transform: "rotate(14deg)", display: "inline-block" }}
+            >
+              ₿
+            </span>
           </div>
-          <span className="text-white font-bold tracking-wide" style={{ fontSize: 14 }}>
+          <span
+            className="text-white font-bold tracking-wide"
+            style={{ fontSize: 14 }}
+          >
             0.0021780
           </span>
-          <ChevronDown size={14} strokeWidth={1.5} className="text-[#9CA3AF] ml-1" />
+          <ChevronDown
+            size={14}
+            strokeWidth={1.5}
+            className="text-[#9CA3AF] ml-1"
+          />
         </button>
 
         {/* Deposit */}
@@ -93,7 +109,9 @@ export default function Header() {
           }}
         >
           <Plus size={16} strokeWidth={2.5} aria-hidden="true" />
-          <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.04em" }}>
+          <span
+            style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.04em" }}
+          >
             Deposit
           </span>
         </button>
@@ -102,36 +120,46 @@ export default function Header() {
       {/* Events button */}
       <button
         className="hidden lg:flex cursor-pointer transition-all hover:opacity-90 items-center justify-center overflow-hidden"
-        style={{ 
-          background: "linear-gradient(0deg, rgba(54, 54, 54, 0.4), rgba(54, 54, 54, 0.4)), linear-gradient(79.11deg, rgba(224, 40, 112, 0.406) 57.05%, rgba(249, 104, 62, 0.595) 106.48%)",
-          border: "none", 
-          padding: 0, 
-          flexShrink: 0, 
+        style={{
+          background:
+            "linear-gradient(0deg, rgba(54, 54, 54, 0.4), rgba(54, 54, 54, 0.4)), linear-gradient(79.11deg, rgba(224, 40, 112, 0.406) 57.05%, rgba(249, 104, 62, 0.595) 106.48%)",
+          border: "none",
+          padding: 0,
+          flexShrink: 0,
           lineHeight: 0,
           borderRadius: 8,
           width: 98,
-          height: 40
+          height: 40,
         }}
       >
-        <Image 
-          src="/icons/Frame-3590.svg" 
-          alt="Events" 
-          width={98} 
-          height={40} 
-          style={{ display: "block", mixBlendMode: "screen" }} 
-          priority 
+        <Image
+          src="/icons/Frame-3590.svg"
+          alt="Events"
+          width={98}
+          height={40}
+          style={{ display: "block", mixBlendMode: "screen" }}
+          priority
         />
       </button>
 
       {/* Divider */}
-      <div className="hidden lg:block shrink-0" style={{ width: 1, height: 20, background: "rgba(255,255,255,0.07)" }} />
+      <div
+        className="hidden lg:block shrink-0"
+        style={{ width: 1, height: 20, background: "rgba(255,255,255,0.07)" }}
+      />
 
       {/* Icon group */}
       <div className="hidden lg:flex items-center gap-6">
         {/* ShoppingBag icon */}
         <button
           className="rounded-lg transition-opacity hover:opacity-70"
-          style={{ color: "#E5E7EB", background: "transparent", border: "none", cursor: "pointer", display: "flex" }}
+          style={{
+            color: "#E5E7EB",
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+          }}
         >
           <ShoppingBag size={22} strokeWidth={1.6} />
         </button>
@@ -139,16 +167,33 @@ export default function Header() {
         {/* Spin and win icon */}
         <button
           className="rounded-lg transition-opacity hover:opacity-70"
-          style={{ background: "transparent", border: "none", cursor: "pointer", display: "flex" }}
+          style={{
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+          }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/icons/Spin-and-win-02.svg" alt="Spin and win" width={22} height={22} style={{ display: "block" }} />
+          <img
+            src="/icons/Spin-and-win-02.svg"
+            alt="Spin and win"
+            width={22}
+            height={22}
+            style={{ display: "block" }}
+          />
         </button>
 
         {/* Bell with 99+ badge */}
         <button
           className="rounded-lg transition-opacity hover:opacity-70 relative"
-          style={{ color: "#E5E7EB", background: "transparent", border: "none", cursor: "pointer", display: "flex" }}
+          style={{
+            color: "#E5E7EB",
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+          }}
         >
           <Bell size={22} strokeWidth={1.6} />
           <span
@@ -181,16 +226,34 @@ export default function Header() {
         }}
       >
         <Globe size={18} strokeWidth={1.5} />
-        <span style={{ fontWeight: 700, fontSize: 16, letterSpacing: "0.05em", fontFamily: "var(--font-sans)" }}>EN</span>
+        <span
+          style={{
+            fontWeight: 700,
+            fontSize: 16,
+            letterSpacing: "0.05em",
+            fontFamily: "var(--font-sans)",
+          }}
+        >
+          EN
+        </span>
         <ChevronDown size={16} strokeWidth={1.5} />
       </div>
 
       {/* User Avatar */}
-      <div className="flex items-center gap-3 cursor-pointer transition-opacity hover:opacity-80 ml-2" style={{ flexShrink: 0 }}>
+      <div
+        className="flex items-center gap-3 cursor-pointer transition-opacity hover:opacity-80 ml-2"
+        style={{ flexShrink: 0 }}
+      >
         {/* Avatar using the provided unified SVG */}
         <div className="flex items-center justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/icons/Group-360.svg" alt="Profile Avatar" width={48} height={48} style={{ display: "block" }} />
+          <img
+            src="/icons/Group-360.svg"
+            alt="Profile Avatar"
+            width={48}
+            height={48}
+            style={{ display: "block" }}
+          />
         </div>
         <ChevronDown size={16} strokeWidth={1.5} style={{ color: "#E5E7EB" }} />
       </div>

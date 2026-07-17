@@ -39,7 +39,12 @@ export default function CryptoWallets() {
       <div className="flex items-center justify-between mb-[14px]">
         <h2
           className="font-bold"
-          style={{ fontSize: 13, color: "#6B7280", letterSpacing: "0.06em", textTransform: "uppercase" }}
+          style={{
+            fontSize: 13,
+            color: "#6B7280",
+            letterSpacing: "0.06em",
+            textTransform: "uppercase",
+          }}
         >
           Crypto Wallets
         </h2>
@@ -101,7 +106,10 @@ export default function CryptoWallets() {
                 aria-label={`${asset.symbol} — ${asset.balance}`}
               >
                 {/* Drag handle */}
-                <div className="flex items-center justify-center text-[#374151]" aria-hidden="true">
+                <div
+                  className="flex items-center justify-center text-[#374151]"
+                  aria-hidden="true"
+                >
                   <GripVertical size={15} strokeWidth={2} />
                 </div>
 
@@ -111,15 +119,24 @@ export default function CryptoWallets() {
                   aria-hidden="true"
                   style={{ width: 38, height: 38, background: asset.iconBg }}
                 >
-                  <span style={{ transform: "rotate(14deg)", display: "inline-block" }}>
+                  <span
+                    style={{
+                      transform: "rotate(14deg)",
+                      display: "inline-block",
+                    }}
+                  >
                     {asset.icon}
                   </span>
                 </div>
 
                 {/* Symbol & Name */}
                 <div className="flex flex-col justify-center gap-[2px] min-w-0">
-                  <span className="font-bold text-white text-[15px] leading-tight">{asset.symbol}</span>
-                  <span className="font-medium text-[#6B7280] text-[12px] leading-tight">{asset.name}</span>
+                  <span className="font-bold text-white text-[15px] leading-tight">
+                    {asset.symbol}
+                  </span>
+                  <span className="font-medium text-[#6B7280] text-[12px] leading-tight">
+                    {asset.name}
+                  </span>
                 </div>
 
                 {/* Balance */}
@@ -127,15 +144,24 @@ export default function CryptoWallets() {
                   <span className="font-bold text-white text-[13px] leading-tight tracking-wide">
                     {asset.balance}
                   </span>
-                  <span className="font-medium text-[#6B7280] text-[11px] leading-tight">{asset.inr}</span>
+                  <span className="font-medium text-[#6B7280] text-[11px] leading-tight">
+                    {asset.inr}
+                  </span>
                 </div>
 
                 {/* Hold */}
                 <div className="flex flex-col justify-center gap-[3px] pl-3">
                   <div className="flex items-center gap-1.5">
-                    <span className="font-bold text-white text-[13px] leading-tight">Hold</span>
+                    <span className="font-bold text-white text-[13px] leading-tight">
+                      Hold
+                    </span>
                     {asset.hold && (
-                      <EyeOff size={12} className="text-[#6B7280] shrink-0" strokeWidth={2} aria-label="Hidden" />
+                      <EyeOff
+                        size={12}
+                        className="text-[#6B7280] shrink-0"
+                        strokeWidth={2}
+                        aria-label="Hidden"
+                      />
                     )}
                   </div>
                   <span
@@ -150,9 +176,16 @@ export default function CryptoWallets() {
                 {/* Staked */}
                 <div className="flex flex-col justify-center gap-[3px]">
                   <div className="flex items-center gap-1.5">
-                    <span className="font-bold text-white text-[13px] leading-tight">Staked</span>
+                    <span className="font-bold text-white text-[13px] leading-tight">
+                      Staked
+                    </span>
                     {asset.staked && (
-                      <EyeOff size={12} className="text-[#6B7280] shrink-0" strokeWidth={2} aria-label="Hidden" />
+                      <EyeOff
+                        size={12}
+                        className="text-[#6B7280] shrink-0"
+                        strokeWidth={2}
+                        aria-label="Hidden"
+                      />
                     )}
                   </div>
                   <span

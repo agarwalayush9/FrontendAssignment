@@ -26,7 +26,8 @@ const DAY_NAMES: Record<string, string> = {
 };
 
 function generateData(range: string): DataPoint[] {
-  const days = range === "7D" ? 7 : range === "30D" ? 30 : range === "90D" ? 90 : 180;
+  const days =
+    range === "7D" ? 7 : range === "30D" ? 30 : range === "90D" ? 90 : 180;
   const count = days === 7 ? 7 : Math.floor(days / 5);
   const points: DataPoint[] = [];
   let base = 2400;
@@ -71,8 +72,12 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
         pointerEvents: "none",
       }}
     >
-      <p style={{ fontWeight: 700, marginBottom: 2 }}>{DAY_NAMES[safeLabel ?? ""] ?? safeLabel}</p>
-      <p style={{ fontWeight: 800, fontSize: 14 }}>{payload[0].value?.toFixed(2)} BTC</p>
+      <p style={{ fontWeight: 700, marginBottom: 2 }}>
+        {DAY_NAMES[safeLabel ?? ""] ?? safeLabel}
+      </p>
+      <p style={{ fontWeight: 800, fontSize: 14 }}>
+        {payload[0].value?.toFixed(2)} BTC
+      </p>
     </div>
   );
 }
@@ -87,7 +92,10 @@ export default function PriceChart({ range }: PriceChartProps) {
 
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <AreaChart data={data} margin={{ top: 8, right: 4, left: -30, bottom: 0 }}>
+      <AreaChart
+        data={data}
+        margin={{ top: 8, right: 4, left: -30, bottom: 0 }}
+      >
         <defs>
           <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#D61D64" stopOpacity={0.3} />
@@ -96,7 +104,11 @@ export default function PriceChart({ range }: PriceChartProps) {
           </linearGradient>
         </defs>
 
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />
+        <CartesianGrid
+          strokeDasharray="3 3"
+          stroke="rgba(255,255,255,0.04)"
+          vertical={false}
+        />
 
         <XAxis
           dataKey="name"
@@ -110,7 +122,11 @@ export default function PriceChart({ range }: PriceChartProps) {
 
         <Tooltip
           content={<CustomTooltip />}
-          cursor={{ stroke: "#D61D64", strokeWidth: 1.5, strokeDasharray: "3 3" }}
+          cursor={{
+            stroke: "#D61D64",
+            strokeWidth: 1.5,
+            strokeDasharray: "3 3",
+          }}
           isAnimationActive={false}
         />
 
@@ -120,7 +136,12 @@ export default function PriceChart({ range }: PriceChartProps) {
           stroke="#D61D64"
           strokeWidth={2}
           fill="url(#chartGradient)"
-          activeDot={{ r: 6, fill: "#D61D64", stroke: "#FFFFFF", strokeWidth: 2.5 }}
+          activeDot={{
+            r: 6,
+            fill: "#D61D64",
+            stroke: "#FFFFFF",
+            strokeWidth: 2.5,
+          }}
           isAnimationActive={false}
         />
       </AreaChart>

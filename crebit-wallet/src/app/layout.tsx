@@ -11,9 +11,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "CREBiT Wallet — Dashboard",
-  description: "Manage your crypto and fiat assets with CREBiT Wallet. Deposit, withdraw, buy crypto and track your portfolio.",
+  description:
+    "Manage your crypto and fiat assets with CREBiT Wallet. Deposit, withdraw, buy crypto and track your portfolio.",
   keywords: ["crypto wallet", "bitcoin", "fiat wallet", "DeFi", "CREBiT"],
-  robots: "noindex",          // Assignment — don't index
+  robots: "noindex", // Assignment — don't index
 };
 
 export const viewport = {
@@ -21,7 +22,11 @@ export const viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={inter.variable}>
       <body className="antialiased">{children}</body>

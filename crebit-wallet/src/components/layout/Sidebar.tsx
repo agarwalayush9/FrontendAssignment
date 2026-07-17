@@ -12,7 +12,11 @@ import {
   HandCoins,
 } from "lucide-react";
 
-type NavIcon = React.ComponentType<{ size?: number; strokeWidth?: number; color?: string }>;
+type NavIcon = React.ComponentType<{
+  size?: number;
+  strokeWidth?: number;
+  color?: string;
+}>;
 
 interface NavItem {
   id: string;
@@ -32,24 +36,48 @@ const NAV_SECTIONS: NavSection[] = [
   {
     label: "EARNINGS",
     items: [
-      { id: "shortlinks", icon: Link2,     label: "Shortlinks", active: false, badge: "5" },
-      { id: "faucet",     icon: HandCoins, label: "Faucet",     active: false },
-      { id: "ptc",        icon: Monitor,   label: "PTC ADs",    active: false, hasArrow: true },
+      {
+        id: "shortlinks",
+        icon: Link2,
+        label: "Shortlinks",
+        active: false,
+        badge: "5",
+      },
+      { id: "faucet", icon: HandCoins, label: "Faucet", active: false },
+      {
+        id: "ptc",
+        icon: Monitor,
+        label: "PTC ADs",
+        active: false,
+        hasArrow: true,
+      },
     ],
   },
   {
     label: "ORBIT SPACE",
     items: [
-      { id: "discover", icon: Earth,       label: "Discover", active: false },
-      { id: "crates",   icon: LayoutGrid,  label: "Crates",   active: false },
-      { id: "shop",     icon: Monitor,     label: "Shop",     active: false, hasArrow: true },
+      { id: "discover", icon: Earth, label: "Discover", active: false },
+      { id: "crates", icon: LayoutGrid, label: "Crates", active: false },
+      {
+        id: "shop",
+        icon: Monitor,
+        label: "Shop",
+        active: false,
+        hasArrow: true,
+      },
     ],
   },
 ];
 
 function TriangleUp() {
   return (
-    <svg width="6" height="4" viewBox="0 0 6 4" fill="currentColor" aria-hidden="true">
+    <svg
+      width="6"
+      height="4"
+      viewBox="0 0 6 4"
+      fill="currentColor"
+      aria-hidden="true"
+    >
       <path d="M3 0L6 4H0L3 0Z" />
     </svg>
   );
@@ -80,7 +108,12 @@ export default function Sidebar() {
           <div className="flex items-center gap-3">
             {/* Logo mark */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/icons/Frame 147.svg" alt="CREBiT logo" width={34} height={34} />
+            <img
+              src="/icons/Frame 147.svg"
+              alt="CREBiT logo"
+              width={34}
+              height={34}
+            />
 
             {/* Brand text */}
             <div className="flex flex-col items-start leading-none gap-[3px]">
@@ -105,9 +138,21 @@ export default function Sidebar() {
             className="flex flex-col gap-[4px] bg-transparent border-none opacity-60 hover:opacity-100 transition-opacity"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/icons/Icon.svg" alt="" width={14} height={6} aria-hidden="true" />
+            <img
+              src="/icons/Icon.svg"
+              alt=""
+              width={14}
+              height={6}
+              aria-hidden="true"
+            />
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/icons/Accent.svg" alt="" width={14} height={6} aria-hidden="true" />
+            <img
+              src="/icons/Accent.svg"
+              alt=""
+              width={14}
+              height={6}
+              aria-hidden="true"
+            />
           </button>
         </div>
       </div>
@@ -138,7 +183,9 @@ export default function Sidebar() {
           aria-current="page"
         >
           <LayoutGrid size={17} strokeWidth={2.5} aria-hidden="true" />
-          <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.04em" }}>
+          <span
+            style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.04em" }}
+          >
             Dashboard
           </span>
         </button>
@@ -167,7 +214,9 @@ export default function Sidebar() {
                     background: item.active ? "#D61D64" : "transparent",
                     color: "#FFFFFF",
                     border: "none",
-                    boxShadow: item.active ? "0 4px 20px rgba(214,29,100,0.25)" : "none",
+                    boxShadow: item.active
+                      ? "0 4px 20px rgba(214,29,100,0.25)"
+                      : "none",
                   }}
                   aria-current={item.active ? "page" : undefined}
                 >
@@ -189,7 +238,10 @@ export default function Sidebar() {
                   </span>
 
                   {item.badge && (
-                    <span className="font-bold text-[#D1D5DB]" style={{ fontSize: 13 }}>
+                    <span
+                      className="font-bold text-[#D1D5DB]"
+                      style={{ fontSize: 13 }}
+                    >
                       {item.badge}
                     </span>
                   )}
@@ -248,7 +300,12 @@ export default function Sidebar() {
           </button>
         </div>
         <span
-          style={{ fontSize: 13, color: "#4B5563", fontWeight: 700, letterSpacing: "0.06em" }}
+          style={{
+            fontSize: 13,
+            color: "#4B5563",
+            fontWeight: 700,
+            letterSpacing: "0.06em",
+          }}
         >
           v0.1.23
         </span>

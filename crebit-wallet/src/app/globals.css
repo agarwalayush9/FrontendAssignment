@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0C0E12;
-  --color-sidebar: #0C0E12;
-  --color-card: #16181D;
-  --color-card-hover: #1A1C23;
-  --color-input: #1A1A22;
-  --color-brand: #D61D64;
+  --color-background: #0c0e12;
+  --color-sidebar: #0c0e12;
+  --color-card: #16181d;
+  --color-card-hover: #1a1c23;
+  --color-input: #1a1a22;
+  --color-brand: #d61d64;
   --color-brand-hover: #b81855;
-  --color-success: #4ADE80;
-  --color-foreground: #FFFFFF;
-  --color-muted: #6B7280;
-  --color-secondary: #9CA3AF;
+  --color-success: #4ade80;
+  --color-foreground: #ffffff;
+  --color-muted: #6b7280;
+  --color-secondary: #9ca3af;
   --color-border: rgba(255, 255, 255, 0.05);
 
   --font-sans: var(--font-inter);
@@ -37,9 +37,13 @@ body,
 }
 
 body {
-  background: #0C0E12;
-  color: #D9D9D9;
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+  background: #0c0e12;
+  color: #d9d9d9;
+  font-family:
+    var(--font-inter),
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -49,7 +53,7 @@ body {
 
 /* ─── Focus Visible (accessibility) ─────────── */
 :focus-visible {
-  outline: 2px solid #D61D64;
+  outline: 2px solid #d61d64;
   outline-offset: 2px;
   border-radius: 2px;
 }

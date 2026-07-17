@@ -29,7 +29,9 @@ export default function BalanceCard() {
         <div>
           {/* Balance header */}
           <div className="flex items-center gap-2 mb-[6px]">
-            <span className="font-bold text-white text-[15px] tracking-wide">Total Balance</span>
+            <span className="font-bold text-white text-[15px] tracking-wide">
+              Total Balance
+            </span>
             <button
               onClick={() => setBalanceVisible((v) => !v)}
               aria-label={balanceVisible ? "Hide balance" : "Show balance"}
@@ -96,7 +98,11 @@ export default function BalanceCard() {
       {/* ── Right Column: Chart ── */}
       <div className="flex flex-col flex-1 min-w-0">
         {/* Time range tabs */}
-        <div className="flex items-center justify-end gap-0 mb-3" role="tablist" aria-label="Chart time range">
+        <div
+          className="flex items-center justify-end gap-0 mb-3"
+          role="tablist"
+          aria-label="Chart time range"
+        >
           {TIME_RANGES.map((range) => {
             const isActive = activeRange === range;
             return (

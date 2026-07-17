@@ -22,21 +22,33 @@ export default function AnnouncementBanner() {
         <div
           aria-hidden="true"
           className="absolute inset-x-[12px] -bottom-[10px] h-full rounded-[8px]"
-          style={{ background: "#090A0D", border: "1px solid rgba(255,255,255,0.02)", zIndex: 0 }}
+          style={{
+            background: "#090A0D",
+            border: "1px solid rgba(255,255,255,0.02)",
+            zIndex: 0,
+          }}
         />
       )}
       {alertsCount >= 3 && (
         <div
           aria-hidden="true"
           className="absolute inset-x-[8px] -bottom-[6px] h-full rounded-[8px]"
-          style={{ background: "#0D0F13", border: "1px solid rgba(255,255,255,0.03)", zIndex: 1 }}
+          style={{
+            background: "#0D0F13",
+            border: "1px solid rgba(255,255,255,0.03)",
+            zIndex: 1,
+          }}
         />
       )}
       {alertsCount >= 2 && (
         <div
           aria-hidden="true"
           className="absolute inset-x-[4px] -bottom-[3px] h-full rounded-[8px]"
-          style={{ background: "#111317", border: "1px solid rgba(255,255,255,0.04)", zIndex: 2 }}
+          style={{
+            background: "#111317",
+            border: "1px solid rgba(255,255,255,0.04)",
+            zIndex: 2,
+          }}
         />
       )}
 
@@ -54,12 +66,19 @@ export default function AnnouncementBanner() {
         <div
           aria-hidden="true"
           className="shrink-0 rounded-full"
-          style={{ width: 3, height: 16, background: "#4ADE80", boxShadow: "0 0 8px rgba(74,222,128,0.45)" }}
+          style={{
+            width: 3,
+            height: 16,
+            background: "#4ADE80",
+            boxShadow: "0 0 8px rgba(74,222,128,0.45)",
+          }}
         />
 
         {/* Message */}
         <p className="flex-1 min-w-0 truncate text-[13px] text-[#D1D5DB]">
-          <span className="font-semibold text-white">New Yield Opportunities Available, </span>
+          <span className="font-semibold text-white">
+            New Yield Opportunities Available,{" "}
+          </span>
           <span>Explore top DeFi strategies and start earning today. </span>
           <a
             href="#"
