@@ -2,59 +2,67 @@
 
 @theme inline {
   --color-background: #0C0E12;
-  --color-sidebar: #131318;
-  --color-card: #222223;
-  --color-card-hover: #222230;
+  --color-sidebar: #0C0E12;
+  --color-card: #16181D;
+  --color-card-hover: #1A1C23;
   --color-input: #1A1A22;
   --color-brand: #D61D64;
-  --color-brand-hover: #A8164F;
-  --color-success: #22C55E;
+  --color-brand-hover: #b81855;
+  --color-success: #4ADE80;
   --color-foreground: #FFFFFF;
   --color-muted: #6B7280;
   --color-secondary: #9CA3AF;
-  
+  --color-border: rgba(255, 255, 255, 0.05);
+
   --font-sans: var(--font-inter);
+
+  --radius-card: 4px;
+  --radius-btn: 4px;
 }
 
-:root {
-  --bg-main: var(--color-background);
-  --bg-sidebar: var(--color-sidebar);
-  --bg-card: var(--color-card);
-  --bg-card-hover: var(--color-card-hover);
-  --bg-input: var(--color-input);
-  --accent-pink: var(--color-brand);
-  --accent-pink-hover: var(--color-brand-hover);
-  --accent-green: var(--color-success);
-  --accent-green-dim: rgba(34, 197, 94, 0.15);
-  --text-primary: var(--color-foreground);
-  --text-secondary: var(--color-secondary);
-  --text-muted: var(--color-muted);
-  --border-color: rgba(255, 255, 255, 0.06);
-  --border-dashed: rgba(255, 255, 255, 0.15);
-}
-
-* {
+/* ─── Reset ──────────────────────────────────── */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+html,
+body,
+#__next {
   height: 100%;
   overflow: hidden;
 }
 
 body {
-  background: var(--bg-main);
-  color: var(--text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0C0E12;
+  color: #D9D9D9;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-/* Custom Scrollbar */
+/* ─── Focus Visible (accessibility) ─────────── */
+:focus-visible {
+  outline: 2px solid #D61D64;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ─── Scrollbar ───────────────────────────────── */
 ::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -67,38 +75,33 @@ body {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Recharts custom tooltip */
-.custom-tooltip {
-  background: #2A2A35;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 12px;
-  color: #fff;
-}
-
-/* Announcement banner gradient */
-.announcement-bar {
-  background: linear-gradient(90deg, #131318 0%, #1a1225 50%, #131318 100%);
-}
-
-/* Pink gradient chart area */
-.chart-gradient {
-  fill: url(#chartGradient);
-}
-
-/* Active nav item glow */
-.nav-active {
-  box-shadow: 0 0 20px rgba(233, 30, 140, 0.15);
-}
-
-/* Dashed border card */
-.dashed-card {
-  border: 1.5px dashed rgba(255, 255, 255, 0.18);
-}
-
-/* Status bar ticker */
+/* ─── Animations ─────────────────────────────── */
 @keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Chart Tooltip ──────────────────────────── */
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+/* ─── Announcement banner stack shadow ───────── */
+.banner-stack-shadow {
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4));
 }

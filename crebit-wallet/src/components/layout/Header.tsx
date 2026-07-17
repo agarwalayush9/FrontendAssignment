@@ -14,7 +14,7 @@ import Image from "next/image";
 export default function Header() {
   return (
     <header
-      className="flex items-center gap-4 px-[20px] shrink-0"
+      className="flex items-center gap-4 px-[18px] shrink-0"
       style={{
         height: 84,
         background: "#0C0E12",
@@ -49,44 +49,51 @@ export default function Header() {
       {/* Spacer */}
       <div className="flex-1" />
 
-      {/* BTC price ticker & Deposit Group */}
-      <div className="flex items-center h-[40px]">
-        {/* BTC Ticker (Left Side) */}
-        <div
-          className="flex items-center gap-[10px] px-[14px] h-full cursor-pointer"
+      {/* ── BTC ticker + Deposit ── */}
+      <div className="flex items-center h-[40px] shrink-0">
+        {/* Ticker */}
+        <button
+          aria-label="BTC price: 0.0021780"
+          className="flex items-center gap-2 pl-[14px] pr-[10px] h-full transition-opacity hover:opacity-80"
           style={{
             background: "#1A1A22",
-            border: "1px solid rgba(214, 29, 100, 0.4)",
+            border: "1px solid rgba(255,255,255,0.07)",
             borderRight: "none",
-            borderTopLeftRadius: "8px",
-            borderBottomLeftRadius: "8px",
+            borderTopLeftRadius: 4,
+            borderBottomLeftRadius: 4,
           }}
         >
           <div
-            className="flex items-center justify-center rounded-full font-black"
-            style={{ width: 22, height: 22, background: "#F7931A", color: "#fff", fontSize: 13, flexShrink: 0 }}
+            aria-hidden="true"
+            className="flex items-center justify-center rounded-full font-black text-white shrink-0"
+            style={{ width: 20, height: 20, background: "#F7931A", fontSize: 11 }}
           >
             <span style={{ transform: "rotate(14deg)", display: "inline-block" }}>₿</span>
           </div>
-          <span className="text-white" style={{ fontSize: 16, fontWeight: 700, letterSpacing: "0.06em", fontFamily: "var(--font-sans)" }}>
+          <span className="text-white font-bold tracking-wide" style={{ fontSize: 14 }}>
             0.0021780
           </span>
-          <ChevronDown size={16} strokeWidth={1.5} style={{ color: "#E5E7EB", marginLeft: 2 }} />
-        </div>
+          <ChevronDown size={14} strokeWidth={1.5} className="text-[#9CA3AF] ml-1" />
+        </button>
 
-        {/* Deposit Button (Right Side) */}
+        {/* Deposit */}
         <button
-          className="flex items-center gap-[6px] px-[18px] h-full cursor-pointer transition-opacity hover:opacity-90"
+          aria-label="Deposit funds"
+          className="flex items-center justify-center gap-[4px] cursor-pointer transition-opacity hover:opacity-90 active:scale-95 shrink-0"
           style={{
             background: "#D61D64",
             color: "#fff",
             border: "none",
-            borderTopRightRadius: "8px",
-            borderBottomRightRadius: "8px",
+            borderTopRightRadius: 4,
+            borderBottomRightRadius: 4,
+            width: 85,
+            height: 40,
+            paddingLeft: 10,
+            paddingRight: 10,
           }}
         >
-          <Plus size={18} strokeWidth={3} />
-          <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: "0.06em", fontFamily: "var(--font-sans)" }}>
+          <Plus size={16} strokeWidth={2.5} aria-hidden="true" />
+          <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.04em" }}>
             Deposit
           </span>
         </button>

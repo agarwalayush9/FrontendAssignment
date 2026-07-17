@@ -7,174 +7,194 @@ import {
   Monitor,
   LayoutGrid,
   ChevronDown,
-  Sidebar as SidebarIcon,
+  PanelLeft,
   Wand2,
   HandCoins,
 } from "lucide-react";
-import Image from "next/image";
 
-const navSections = [
+type NavIcon = React.ComponentType<{ size?: number; strokeWidth?: number; color?: string }>;
+
+interface NavItem {
+  id: string;
+  icon: NavIcon;
+  label: string;
+  active: boolean;
+  badge?: string;
+  hasArrow?: boolean;
+}
+
+interface NavSection {
+  label: string;
+  items: NavItem[];
+}
+
+const NAV_SECTIONS: NavSection[] = [
   {
     label: "EARNINGS",
     items: [
-      { icon: Link2,      label: "Shortlinks", active: false, badge: "5",  hasArrow: false },
-      { icon: HandCoins,  label: "Faucet",     active: false, badge: null, hasArrow: false },
-      { icon: Monitor,    label: "PTC ADs",    active: false, badge: null, hasArrow: true  },
+      { id: "shortlinks", icon: Link2,     label: "Shortlinks", active: false, badge: "5" },
+      { id: "faucet",     icon: HandCoins, label: "Faucet",     active: false },
+      { id: "ptc",        icon: Monitor,   label: "PTC ADs",    active: false, hasArrow: true },
     ],
   },
   {
     label: "ORBIT SPACE",
     items: [
-      { icon: Earth,      label: "Discover", active: false, badge: null, hasArrow: false },
-      { icon: LayoutGrid, label: "Crates",   active: false, badge: null, hasArrow: false },
-      { icon: Monitor,    label: "Shop",     active: false, badge: null, hasArrow: true  },
+      { id: "discover", icon: Earth,       label: "Discover", active: false },
+      { id: "crates",   icon: LayoutGrid,  label: "Crates",   active: false },
+      { id: "shop",     icon: Monitor,     label: "Shop",     active: false, hasArrow: true },
     ],
   },
 ];
 
 function TriangleUp() {
   return (
-    <svg width="6" height="4" viewBox="0 0 6 4" fill="#4B5563" xmlns="http://www.w3.org/2000/svg">
+    <svg width="6" height="4" viewBox="0 0 6 4" fill="currentColor" aria-hidden="true">
       <path d="M3 0L6 4H0L3 0Z" />
     </svg>
   );
 }
 
-
-
-
-
-
-
 export default function Sidebar() {
   return (
     <aside
-      className="hidden lg:flex flex-col h-full shrink-0 z-10"
+      className="hidden lg:flex flex-col shrink-0"
       style={{
         width: 254,
-        minWidth: 254,
+        height: 586,
         background: "#0C0E12",
         borderRight: "1px solid rgba(255,255,255,0.05)",
+        opacity: 1,
       }}
+      aria-label="Main navigation"
     >
-      {/* ── Logo Header ── */}
+      {/* ── Logo header ── */}
       <div
-        className="flex items-center justify-between px-4 py-3"
-        style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", minHeight: 58 }}
+        className="flex items-center justify-center shrink-0 w-full"
+        style={{ height: 84, borderBottom: "1px solid rgba(255,255,255,0.06)" }}
       >
-        <div className="flex items-center gap-3">
-          {/* Logo icon */}
-          <div className="shrink-0">
+        <div
+          className="flex items-center justify-between"
+          style={{ width: 212, height: 44, gap: 24, opacity: 1 }}
+        >
+          <div className="flex items-center gap-3">
+            {/* Logo mark */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/icons/Frame 147.svg" alt="CREBiT logo" width={35} height={35} style={{ display: 'block' }} />
+            <img src="/icons/Frame 147.svg" alt="CREBiT logo" width={34} height={34} />
+
+            {/* Brand text */}
+            <div className="flex flex-col items-start leading-none gap-[3px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/icons/Group.svg" alt="CREBiT" width={66} height={17} />
+              <span
+                style={{
+                  fontSize: 11,
+                  color: "#D61D64",
+                  fontWeight: 700,
+                  letterSpacing: "0.04em",
+                }}
+              >
+                ~Wallet
+              </span>
+            </div>
           </div>
 
-          {/* Brand text */}
-          <div className="flex flex-col items-end leading-none gap-[2px]">
+          {/* Collapse toggle */}
+          <button
+            aria-label="Collapse sidebar"
+            className="flex flex-col gap-[4px] bg-transparent border-none opacity-60 hover:opacity-100 transition-opacity"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/icons/Group.svg" alt="CREBiT wordmark" width={70} height={19} style={{ display: 'block', marginTop: 3 }} />
-            <span
-              style={{
-                fontSize: 12,
-                color: "#D61D64",
-                fontWeight: 700,
-                lineHeight: 1,
-                marginRight: 2,
-                letterSpacing: "0.02em",
-                fontFamily: "var(--font-sans)",
-              }}
-            >
-              ~Wallet
-            </span>
-          </div>
+            <img src="/icons/Icon.svg" alt="" width={14} height={6} aria-hidden="true" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/icons/Accent.svg" alt="" width={14} height={6} aria-hidden="true" />
+          </button>
         </div>
-
-        {/* Collapse Icon */}
-        <button className="flex flex-col gap-[3px] p-1 bg-transparent border-none cursor-pointer transition-opacity hover:opacity-80">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/icons/Icon.svg" alt="collapse" width={12} height={7} style={{ display: 'block' }} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/icons/Accent.svg" alt="expand" width={12} height={7} style={{ display: 'block' }} />
-        </button>
       </div>
 
       {/* ── Navigation ── */}
-      <nav className="flex-1 overflow-y-auto pt-4 pb-2 px-[20px]">
-        {/* Dashboard Standalone Button */}
+      <nav
+        className="flex flex-col overflow-y-auto overflow-x-hidden"
+        style={{
+          width: 214,
+          height: 514,
+          gap: 14,
+          opacity: 1,
+          margin: "0 auto",
+          paddingTop: 20,
+        }}
+        aria-label="Sidebar navigation"
+      >
+        {/* Dashboard */}
         <button
-          className="w-full flex items-center gap-[14px] px-[16px] rounded-[8px] mb-6 cursor-pointer transition-all duration-150"
+          className="w-full flex items-center gap-[14px] px-4 rounded-[8px] shrink-0 transition-all duration-150 active:scale-95"
           style={{
             height: 38,
             background: "#D61D64",
             color: "#FFFFFF",
             border: "none",
-            textAlign: "left",
-            boxShadow: "0 0 16px rgba(214,29,100,0.2)",
+            boxShadow: "0 4px 20px rgba(214,29,100,0.3)",
           }}
+          aria-current="page"
         >
-          <LayoutGrid size={18} strokeWidth={2} />
-          <span className="flex-1" style={{ letterSpacing: "0.04em", fontSize: 14, fontWeight: 700 }}>
+          <LayoutGrid size={17} strokeWidth={2.5} aria-hidden="true" />
+          <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.04em" }}>
             Dashboard
           </span>
         </button>
 
-        {navSections.map((section) => (
-          <div key={section.label} className="mb-4">
-            <div
-              className="flex items-center gap-2 px-1 mb-3"
-              style={{ fontSize: 11, fontWeight: 700, color: "#4B5563", letterSpacing: "0.1em" }}
+        {/* Sections */}
+        {NAV_SECTIONS.map((section) => (
+          <div key={section.label} className="flex flex-col shrink-0">
+            {/* Section label */}
+            <p
+              className="flex items-center gap-2 px-1 mb-2 text-[#4B5563]"
+              style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em" }}
             >
               {section.label}
               <TriangleUp />
-            </div>
+            </p>
 
+            {/* Items */}
             {section.items.map((item) => {
               const Icon = item.icon;
               return (
                 <button
-                  key={item.label}
-                  className="w-full flex items-center gap-[14px] px-[16px] rounded-[8px] mb-1 cursor-pointer transition-all duration-150"
+                  key={item.id}
+                  className="w-full flex items-center gap-[14px] px-4 rounded-[6px] mb-[2px] transition-all duration-150 active:scale-95 hover:bg-white/[0.04]"
                   style={{
                     height: 38,
                     background: item.active ? "#D61D64" : "transparent",
                     color: "#FFFFFF",
-                    fontSize: 14,
-                    fontWeight: item.active ? 700 : 600,
                     border: "none",
-                    textAlign: "left",
-                    boxShadow: item.active ? "0 0 16px rgba(214,29,100,0.2)" : "none",
+                    boxShadow: item.active ? "0 4px 20px rgba(214,29,100,0.25)" : "none",
                   }}
-                  onMouseEnter={(e) => {
-                    if (!item.active) {
-                      (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.04)";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!item.active) {
-                      (e.currentTarget as HTMLButtonElement).style.background = "transparent";
-                    }
-                  }}
+                  aria-current={item.active ? "page" : undefined}
                 >
-                  {typeof item.icon === "string" ? (
-                    <Image src={item.icon} alt={item.label} width={18} height={18} style={{ opacity: item.active ? 1 : 0.8 }} />
-                  ) : (
-                    <Icon size={18} strokeWidth={item.active ? 2.5 : 2} />
-                  )}
-                  <span className="flex-1" style={{ letterSpacing: "0.02em" }}>{item.label}</span>
+                  <Icon
+                    size={17}
+                    strokeWidth={item.active ? 2.5 : 2}
+                    color={item.active ? "#FFFFFF" : "#9CA3AF"}
+                  />
+                  <span
+                    className="flex-1 text-left"
+                    style={{
+                      fontSize: 14,
+                      fontWeight: item.active ? 700 : 500,
+                      color: item.active ? "#fff" : "#D1D5DB",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {item.label}
+                  </span>
+
                   {item.badge && (
-                    <span
-                      className="font-bold"
-                      style={{
-                        color: "#fff",
-                        fontSize: 13,
-                        lineHeight: 1,
-                      }}
-                    >
+                    <span className="font-bold text-[#D1D5DB]" style={{ fontSize: 13 }}>
                       {item.badge}
                     </span>
                   )}
                   {item.hasArrow && (
-                    <ChevronDown size={14} style={{ color: "#4B5563" }} />
+                    <ChevronDown size={13} color="#4B5563" aria-hidden="true" />
                   )}
                 </button>
               );
@@ -185,17 +205,53 @@ export default function Sidebar() {
 
       {/* ── Bottom controls ── */}
       <div
-        className="px-[20px] py-4 flex items-center justify-between mt-auto mb-2"
+        className="flex items-center justify-between shrink-0"
+        style={{
+          width: 214,
+          height: 32,
+          opacity: 1,
+          margin: "auto auto 24px auto",
+        }}
       >
-        <div className="flex items-center gap-[14px]">
-          <button className="rounded-[14px] transition-colors hover:bg-gray-800" style={{ background: "#1C1E23", color: "#E5E7EB", border: "none", cursor: "pointer", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <SidebarIcon size={22} strokeWidth={1.8} />
+        <div className="flex items-center" style={{ gap: 16 }}>
+          <button
+            aria-label="Toggle sidebar panel"
+            className="rounded-[8px] hover:bg-white/5 transition-colors"
+            style={{
+              background: "#1C1E23",
+              color: "#9CA3AF",
+              border: "none",
+              width: 32,
+              height: 32,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <PanelLeft size={16} strokeWidth={2} />
           </button>
-          <button className="rounded-[14px] transition-colors hover:bg-gray-800" style={{ background: "#1C1E23", color: "#E5E7EB", border: "none", cursor: "pointer", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <Wand2 size={22} strokeWidth={1.8} />
+          <button
+            aria-label="Customise appearance"
+            className="rounded-[8px] hover:bg-white/5 transition-colors"
+            style={{
+              background: "#1C1E23",
+              color: "#9CA3AF",
+              border: "none",
+              width: 32,
+              height: 32,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Wand2 size={16} strokeWidth={2} />
           </button>
         </div>
-        <span style={{ fontSize: 16, color: "#6B7280", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-sans)" }}>v0.1.23</span>
+        <span
+          style={{ fontSize: 13, color: "#4B5563", fontWeight: 700, letterSpacing: "0.06em" }}
+        >
+          v0.1.23
+        </span>
       </div>
     </aside>
   );

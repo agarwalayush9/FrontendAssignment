@@ -5,24 +5,26 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "CREBiT Wallet — Dashboard",
-  description: "Manage your crypto and fiat assets with CREBiT Wallet",
+  description: "Manage your crypto and fiat assets with CREBiT Wallet. Deposit, withdraw, buy crypto and track your portfolio.",
+  keywords: ["crypto wallet", "bitcoin", "fiat wallet", "DeFi", "CREBiT"],
+  robots: "noindex",          // Assignment — don't index
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} antialiased`} style={{ background: "#0C0E12" }}>
-        {children}
-      </body>
+    <html lang="en" className={inter.variable}>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
