@@ -107,7 +107,7 @@ export default function Header() {
         }}
       >
         <Image 
-          src="/icons/Frame 3590.svg" 
+          src="/icons/Frame-3590.svg" 
           alt="Events" 
           width={98} 
           height={40} 
@@ -135,7 +135,7 @@ export default function Header() {
           style={{ background: "transparent", border: "none", cursor: "pointer", display: "flex" }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/icons/Spin and win-02.svg" alt="Spin and win" width={22} height={22} style={{ display: "block" }} />
+          <img src="/icons/Spin-and-win-02.svg" alt="Spin and win" width={22} height={22} style={{ display: "block" }} />
         </button>
 
         {/* Bell with 99+ badge */}
@@ -183,7 +183,7 @@ export default function Header() {
         {/* Avatar using the provided unified SVG */}
         <div className="flex items-center justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/icons/Group 360.svg" alt="Profile Avatar" width={48} height={48} style={{ display: "block" }} />
+          <img src="/icons/Group-360.svg" alt="Profile Avatar" width={48} height={48} style={{ display: "block" }} />
         </div>
         <ChevronDown size={16} strokeWidth={1.5} style={{ color: "#E5E7EB" }} />
       </div>
